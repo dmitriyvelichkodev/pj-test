@@ -1,11 +1,11 @@
 version: '3.1'
 
 services:
-  server:
-    build: ./server
+  nginx:
+    build: ./nginx
     ports:
       - 80:80
-  client:
-    build: ./client
+  slowloris:
+    build: ./slowloris
     environment:
       - SL_SOCKET_COUNT=3000
