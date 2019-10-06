@@ -1,9 +1,10 @@
-FROM node:12-alpine
+FROM python:3
 
-ENV NODE_ENV=production
-ENV HOME=/app
+WORKDIR /usr/src/app
 
-RUN chown -R node:node $HOME
-USER node
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-ADD . $HOME
+COPY . .
+
+CMD [ "python", "./main.py" ]

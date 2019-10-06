@@ -1,7 +1,24 @@
-# client
+## setup
 
+Currently docker-compose allows to start server(nginx) and client(slowloris) with command:
 
-## server (nginx)
+`docker-compose up --scale client=NUMBER_OF_INSTANCES`
+
+NUMBER_OF_INSTANCES: scale for container with python based slowloris client.
+Nginx container will be available inside docker network by the hostname: server
+
+You can specify host, port and number of socket to open from one container with env variables in docker-compose.yml
+```
+SL_HOST - host
+SL_PORT - port
+SL_SOCKET_COUNT - sockets_count
+```
+
+### client (slowloris)
+Container uses [slowloris](https://github.com/gkbrk/slowloris) python package
+
+### server (nginx)
+Configs to protect from ddos:
 - limited number of connections per ip: `10`
 - rate-limited requests to: `5req/s`
 - extended worker connection limit: `100000`

@@ -5,5 +5,7 @@ services:
     build: ./server
     ports:
       - 80:80
-#  client:
-#    build: ./client
+  client:
+    build: ./client
+    environment:
+      - SL_SOCKET_COUNT=3000
