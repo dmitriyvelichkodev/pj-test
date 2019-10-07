@@ -2,9 +2,9 @@
 
 Currently docker-compose allows to start nginx and slowloris containers with command:
 
-`docker-compose up --scale client=NUMBER_OF_INSTANCES`
+`docker-compose up --scale slowloris=NUMBER_OF_INSTANCES`
 
-NUMBER_OF_INSTANCES: scale for slowloris container. By default one container will try to establish 300 connections.
+NUMBER_OF_INSTANCES: scale for slowloris container. By default one container will try to establish 1000 connections.
 Nginx container will be available inside docker network by the hostname: nginx
 
 You can specify host, port and number of socket to open from slowloris container with env variables in docker-compose.yml

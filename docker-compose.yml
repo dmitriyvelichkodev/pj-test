@@ -8,4 +8,4 @@ services:
   slowloris:
     build: ./slowloris
     environment:
-      - SL_SOCKET_COUNT=3000
+      - SL_SOCKET_COUNT=1000
